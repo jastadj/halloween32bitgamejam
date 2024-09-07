@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfovf070lo47b"]
+
+[ext_resource type="PackedScene" uid="uid://c6x13h133ygi2" path="res://objects/player/player.tscn" id="1_jsjhw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lqps3"]
+size = Vector3(20, 1, 20)
+
+[node name="game" type="Node3D"]
+
+[node name="map" type="Node3D" parent="."]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.495418, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_lqps3")
+
+[node name="objects" type="Node3D" parent="."]
+
+[node name="player" parent="objects" instance=ExtResource("1_jsjhw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06171, 0)
