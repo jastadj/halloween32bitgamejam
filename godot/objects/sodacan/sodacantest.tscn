@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dao57c1k84ix5"]
+
+[ext_resource type="PackedScene" uid="uid://f7cspfefmqws" path="res://objects/sodacan/sodacantest.blend" id="1_f3rw8"]
+[ext_resource type="Material" uid="uid://brtl8lsdp3h0k" path="res://objects/sodacan/Material.001.tres" id="2_s04vs"]
+
+[node name="sodacantest" instance=ExtResource("1_f3rw8")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Cylinder" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_s04vs")

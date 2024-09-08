@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dh0auy4luowq3"]
+
+[ext_resource type="Shader" path="res://shaders/highlight.gdshader" id="1_hs5yq"]
+
+[resource]
+resource_local_to_scene = true
+resource_name = "HighlightMaterialShader"
+render_priority = 0
+shader = ExtResource("1_hs5yq")
+shader_parameter/strength = 0.0

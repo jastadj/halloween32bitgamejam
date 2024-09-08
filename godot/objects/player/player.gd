@@ -1,11 +1,11 @@
 class_name Player
 extends CharacterBody3D
 
-@export_category("Player")
-@export_range(1, 35, 1) var speed: float = 10 # m/s
-@export_range(10, 400, 1) var acceleration: float = 100 # m/s^2
-@export_range(0.1, 3.0, 0.1) var jump_height: float = 1.0 # m
-@export_range(0.1, 3.0, 0.1, "or_greater") var camera_sens: float = 1.0
+var speed: float = 10 # m/s
+var jump_height: float = 1.0 # m
+var camera_sens: float = 1.0
+var acceleration: float = 100 # m/s^2
+var interact_distance: float = 3.0
 
 var jumping: bool = false
 var mouse_captured: bool = false
@@ -24,6 +24,7 @@ var jump_vel: Vector3 # Jumping velocity
 
 func _ready() -> void:
 	capture_mouse()
+	ray.target_position = Vector3(0,0,-interact_distance)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -34,14 +35,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif Input.is_action_just_pressed("jump"): jumping = true
 	elif Input.is_action_just_pressed("toggle_flashlight"):
 		$Camera3D/flashlight.visible = !$Camera3D/flashlight.visible
-
-func _process(_delta):
-	
-	# if looking at something close enough
-	if ray.is_colliding():
-		var obj = ray.get_collider()
-		if obj:
-			print(obj.name)
 
 func _physics_process(delta: float) -> void:
 	if mouse_captured: _handle_joypad_camera_rotation(delta)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg085yt8tunyk"]
+
+[ext_resource type="PackedScene" uid="uid://dao57c1k84ix5" path="res://objects/sodacan/sodacantest.tscn" id="1_hghbd"]
+[ext_resource type="PackedScene" uid="uid://da5h7we48u2yv" path="res://object_components/can_interact/can_interact.tscn" id="3_oodwj"]
+[ext_resource type="PackedScene" uid="uid://fvwwgkn4l17e" path="res://object_components/physics_with_player/physics_with_player.tscn" id="3_yrjna"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a2wmx"]
+size = Vector3(0.189487, 0.308372, 0.209045)
+
+[node name="sodacan" type="RigidBody3D"]
+
+[node name="sodacantest" parent="." instance=ExtResource("1_hghbd")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000143051, 0.00815201, 0.00228882)
+shape = SubResource("BoxShape3D_a2wmx")
+
+[node name="physics_with_player" parent="." instance=ExtResource("3_yrjna")]
+
+[node name="can_interact" parent="." instance=ExtResource("3_oodwj")]

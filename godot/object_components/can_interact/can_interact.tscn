@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://da5h7we48u2yv"]
+
+[ext_resource type="Script" path="res://object_components/can_interact/can_interact.gd" id="1_v000v"]
+
+[node name="can_interact" type="Node"]
+script = ExtResource("1_v000v")
