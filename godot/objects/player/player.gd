@@ -21,6 +21,7 @@ var jump_vel: Vector3 # Jumping velocity
 
 @onready var camera: Camera3D = $Camera3D
 @onready var ray: RayCast3D = $Camera3D/RayCast3D
+@onready var inventory:Control = $CanvasLayerUI/inventory
 
 func _ready() -> void:
 	capture_mouse()
@@ -31,10 +32,27 @@ func _unhandled_input(event: InputEvent) -> void:
 		look_dir = event.relative * 0.001
 		if mouse_captured: _rotate_camera()
 	elif Input.is_action_just_pressed("quit"):
-		get_tree().quit()
+		if inventory.visible:
+			inventory.hide()
+		else:
+			get_tree().quit()
+	elif Input.is_action_just_released("open_inventory"):
+		if !inventory.visible:
+			release_mouse()
+			inventory.show()
+		else:
+			capture_mouse()
+			inventory.hide()
 	elif Input.is_action_just_pressed("jump"): jumping = true
 	elif Input.is_action_just_pressed("toggle_flashlight"):
 		$Camera3D/flashlight.visible = !$Camera3D/flashlight.visible
+	elif Input.is_action_pressed("activate"):
+		if ray.looking_at != null:
+			var obj = ray.looking_at
+			var interact_node:ComponentInteract = obj.get_node_or_null("can_interact")
+			if interact_node != null:
+				if interact_node.interaction_type == ComponentInteract.INTERACTION_TYPE.PICKUP:
+					pickup(obj)
 
 func _physics_process(delta: float) -> void:
 	if mouse_captured: _handle_joypad_camera_rotation(delta)
@@ -78,3 +96,22 @@ func _jump(delta: float) -> Vector3:
 		return jump_vel
 	jump_vel = Vector3.ZERO if is_on_floor() else jump_vel.move_toward(Vector3.ZERO, gravity * delta)
 	return jump_vel
+
+func pickup(obj:RigidBody3D) -> bool:
+	
+	if obj == null:
+		return false
+	
+	var colliding_bodies = obj.get_colliding_bodies()
+	
+	if !inventory.add_object(obj):
+		return false
+	
+	print("You picked up ", obj.get_node("can_interact").object_name, ".")
+	
+	# wake up any bodies that were touching this object
+	for colliding_body in colliding_bodies:
+		if colliding_body is RigidBody3D:
+			colliding_body.sleeping = false
+	
+	return true

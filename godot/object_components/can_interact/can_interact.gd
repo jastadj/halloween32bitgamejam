@@ -1,8 +1,10 @@
+class_name ComponentInteract
 extends Node
 
 enum INTERACTION_TYPE{PICKUP, ACTIVATE}
 
 @export var interaction_type:INTERACTION_TYPE = INTERACTION_TYPE.ACTIVATE
+@export var object_name:String = "some object"
 
 @onready var targeted = false:
 	set(val):

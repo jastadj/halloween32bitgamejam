@@ -8,6 +8,8 @@
 size = Vector3(0.189487, 0.308372, 0.209045)
 
 [node name="sodacan" type="RigidBody3D"]
+contact_monitor = true
+max_contacts_reported = 5
 
 [node name="sodacantest" parent="." instance=ExtResource("1_hghbd")]
 
@@ -18,3 +20,5 @@ shape = SubResource("BoxShape3D_a2wmx")
 [node name="physics_with_player" parent="." instance=ExtResource("3_yrjna")]
 
 [node name="can_interact" parent="." instance=ExtResource("3_oodwj")]
+interaction_type = 0
+object_name = "Cola"

@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6x13h133ygi2"]
+[gd_scene load_steps=6 format=3 uid="uid://c6x13h133ygi2"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_equtq"]
 [ext_resource type="Script" path="res://objects/player/interaction_ray.gd" id="2_nuaif"]
+[ext_resource type="PackedScene" uid="uid://b5t3mos1ttchb" path="res://ui/reticle/reticle.tscn" id="3_8vs1x"]
+[ext_resource type="PackedScene" uid="uid://bescxvrmpbu38" path="res://ui/inventory/inventory.tscn" id="4_2n22y"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jv8sm"]
 
@@ -23,3 +25,17 @@ target_position = Vector3(0, 0, -3)
 collision_mask = 4
 debug_shape_custom_color = Color(0, 1, 0, 1)
 script = ExtResource("2_nuaif")
+
+[node name="CanvasLayerUI" type="CanvasLayer" parent="."]
+
+[node name="reticle" parent="CanvasLayerUI" instance=ExtResource("3_8vs1x")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="inventory" parent="CanvasLayerUI" instance=ExtResource("4_2n22y")]
+visible = false
