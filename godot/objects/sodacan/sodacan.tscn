@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bg085yt8tunyk"]
+[gd_scene load_steps=6 format=3 uid="uid://bg085yt8tunyk"]
 
 [ext_resource type="PackedScene" uid="uid://dao57c1k84ix5" path="res://objects/sodacan/sodacantest.tscn" id="1_hghbd"]
 [ext_resource type="PackedScene" uid="uid://da5h7we48u2yv" path="res://object_components/can_interact/can_interact.tscn" id="3_oodwj"]
 [ext_resource type="PackedScene" uid="uid://fvwwgkn4l17e" path="res://object_components/physics_with_player/physics_with_player.tscn" id="3_yrjna"]
+[ext_resource type="PackedScene" uid="uid://dscs8dk0wh7mo" path="res://object_components/can_consume/can_consume.tscn" id="4_760it"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a2wmx"]
 size = Vector3(0.189487, 0.308372, 0.209045)
@@ -22,3 +23,7 @@ shape = SubResource("BoxShape3D_a2wmx")
 [node name="can_interact" parent="." instance=ExtResource("3_oodwj")]
 interaction_type = 0
 object_name = "Cola"
+
+[node name="can_consume" parent="." instance=ExtResource("4_760it")]
+health_mod = 5.0
+consume_verb = "drink"

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgkilay4trqf7"]
+
+[ext_resource type="Script" path="res://ui/inventory/item_context/item_context.gd" id="1_fo3qn"]
+
+[node name="item_context" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fo3qn")
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+
+[connection signal="index_pressed" from="PopupMenu" to="." method="_on_popup_menu_index_pressed"]
+[connection signal="popup_hide" from="PopupMenu" to="." method="_on_popup_menu_popup_hide"]

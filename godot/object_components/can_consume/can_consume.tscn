@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dscs8dk0wh7mo"]
+
+[ext_resource type="Script" path="res://object_components/can_consume/can_consume.gd" id="1_lvxcv"]
+
+[node name="can_consume" type="Node"]
+script = ExtResource("1_lvxcv")

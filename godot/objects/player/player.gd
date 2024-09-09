@@ -33,6 +33,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if mouse_captured: _rotate_camera()
 	elif Input.is_action_just_pressed("quit"):
 		if inventory.visible:
+			capture_mouse()
 			inventory.hide()
 		else:
 			get_tree().quit()

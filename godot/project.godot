@@ -15,6 +15,10 @@ run/main_scene="res://scenes/main/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[gui]
+
+theme/custom="res://themes/theme.tres"
+
 [input]
 
 look_left={
