@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxmbostrknes5"]
+
+[ext_resource type="Script" path="res://object_components/object_info/object_info.gd" id="1_ebntg"]
+
+[node name="object_info" type="Node"]
+script = ExtResource("1_ebntg")

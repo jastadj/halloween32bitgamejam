@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg085yt8tunyk"]
+[gd_scene load_steps=7 format=3 uid="uid://bg085yt8tunyk"]
 
 [ext_resource type="PackedScene" uid="uid://dao57c1k84ix5" path="res://objects/sodacan/sodacantest.tscn" id="1_hghbd"]
+[ext_resource type="PackedScene" uid="uid://bxmbostrknes5" path="res://object_components/object_info/object_info.tscn" id="2_8x3mk"]
 [ext_resource type="PackedScene" uid="uid://da5h7we48u2yv" path="res://object_components/can_interact/can_interact.tscn" id="3_oodwj"]
 [ext_resource type="PackedScene" uid="uid://fvwwgkn4l17e" path="res://object_components/physics_with_player/physics_with_player.tscn" id="3_yrjna"]
 [ext_resource type="PackedScene" uid="uid://dscs8dk0wh7mo" path="res://object_components/can_consume/can_consume.tscn" id="4_760it"]
@@ -18,11 +19,14 @@ max_contacts_reported = 5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000143051, 0.00815201, 0.00228882)
 shape = SubResource("BoxShape3D_a2wmx")
 
+[node name="object_info" parent="." instance=ExtResource("2_8x3mk")]
+object_name = "cola"
+object_look = "A can of warm cola."
+
 [node name="physics_with_player" parent="." instance=ExtResource("3_yrjna")]
 
 [node name="can_interact" parent="." instance=ExtResource("3_oodwj")]
 interaction_type = 0
-object_name = "Cola"
 
 [node name="can_consume" parent="." instance=ExtResource("4_760it")]
 health_mod = 5.0

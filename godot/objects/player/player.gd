@@ -47,7 +47,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif Input.is_action_just_pressed("jump"): jumping = true
 	elif Input.is_action_just_pressed("toggle_flashlight"):
 		$Camera3D/flashlight.visible = !$Camera3D/flashlight.visible
-	elif Input.is_action_pressed("activate"):
+	elif Input.is_action_just_pressed("activate"):
 		if ray.looking_at != null:
 			var obj = ray.looking_at
 			var interact_node:ComponentInteract = obj.get_node_or_null("can_interact")
@@ -108,7 +108,7 @@ func pickup(obj:RigidBody3D) -> bool:
 	if !inventory.add_object(obj):
 		return false
 	
-	print("You picked up ", obj.get_node("can_interact").object_name, ".")
+	print("You picked up ", obj.get_node("object_info").object_name, ".")
 	
 	# wake up any bodies that were touching this object
 	for colliding_body in colliding_bodies:

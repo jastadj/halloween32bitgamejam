@@ -65,7 +65,7 @@ func set_object(obj:RigidBody3D) -> bool:
 	$SubViewportContainer/SubViewport/world/object_anchor/object_rotator.call_deferred("add_child", _object)
 	
 	# set tooltip text
-	$tooltip_offset/tooltip.text = _object.get_node("can_interact").object_name
+	$tooltip_offset/tooltip.text = _object.get_node("object_info").object_name
 	
 	return true
 
