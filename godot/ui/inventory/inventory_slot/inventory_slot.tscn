@@ -58,3 +58,4 @@ horizontal_alignment = 1
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="child_entered_tree" from="SubViewportContainer/SubViewport/world/object_anchor/object_rotator" to="SubViewportContainer/SubViewport/world/object_anchor/object_rotator" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="SubViewportContainer/SubViewport/world/object_anchor/object_rotator" to="." method="_on_object_rotator_child_exiting_tree"]

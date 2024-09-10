@@ -6,3 +6,5 @@ extends Node
 
 func consume():
 	print("You ", consume_verb, " the ", get_parent().get_node("object_info").object_name, ".")
+	get_parent().get_parent().remove_child(get_parent())
+	
