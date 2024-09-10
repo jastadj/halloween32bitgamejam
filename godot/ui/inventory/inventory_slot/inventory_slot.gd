@@ -79,5 +79,5 @@ func _on_mouse_exited():
 	$tooltip_offset.visible = false
 	resize_not_hovered()
 
-func _on_object_rotator_child_exiting_tree(node):
+func _on_object_rotator_child_exiting_tree(_node):
 	queue_free()
