@@ -22,6 +22,7 @@ var jump_vel: Vector3 # Jumping velocity
 @onready var camera: Camera3D = $Camera3D
 @onready var ray: RayCast3D = $Camera3D/RayCast3D
 @onready var inventory:Control = $CanvasLayerUI/inventory
+@onready var message_history:Control = $CanvasLayerUI/message_history
 
 func _ready() -> void:
 	capture_mouse()
@@ -108,7 +109,7 @@ func pickup(obj:RigidBody3D) -> bool:
 	if !inventory.add_object(obj):
 		return false
 	
-	print("You picked up ", obj.get_node("object_info").object_name, ".")
+	System.message(str("You picked up ", obj.get_node("object_info").object_name, "."))
 	
 	# wake up any bodies that were touching this object
 	for colliding_body in colliding_bodies:

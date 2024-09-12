@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfovf070lo47b"]
+[gd_scene load_steps=6 format=3 uid="uid://cfovf070lo47b"]
 
 [ext_resource type="PackedScene" uid="uid://bebwjidcoo0jd" path="res://objects/table/table.tscn" id="1_0rh4c"]
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_fqqx7"]
 [ext_resource type="PackedScene" uid="uid://c6x13h133ygi2" path="res://objects/player/player.tscn" id="1_jsjhw"]
 [ext_resource type="PackedScene" uid="uid://bg085yt8tunyk" path="res://objects/sodacan/sodacan.tscn" id="2_jbjxe"]
 
@@ -8,6 +9,7 @@
 size = Vector3(20, 1, 20)
 
 [node name="game" type="Node3D"]
+script = ExtResource("1_fqqx7")
 
 [node name="map" type="Node3D" parent="."]
 

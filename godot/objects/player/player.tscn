@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6x13h133ygi2"]
+[gd_scene load_steps=7 format=3 uid="uid://c6x13h133ygi2"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_equtq"]
 [ext_resource type="Script" path="res://objects/player/interaction_ray.gd" id="2_nuaif"]
 [ext_resource type="PackedScene" uid="uid://b5t3mos1ttchb" path="res://ui/reticle/reticle.tscn" id="3_8vs1x"]
 [ext_resource type="PackedScene" uid="uid://bescxvrmpbu38" path="res://ui/inventory/inventory.tscn" id="4_2n22y"]
+[ext_resource type="PackedScene" uid="uid://brqp68c7pagsm" path="res://ui/message_history/message_history.tscn" id="5_a6qj7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jv8sm"]
 
@@ -39,3 +40,5 @@ grow_vertical = 1
 
 [node name="inventory" parent="CanvasLayerUI" instance=ExtResource("4_2n22y")]
 visible = false
+
+[node name="message_history" parent="CanvasLayerUI" instance=ExtResource("5_a6qj7")]

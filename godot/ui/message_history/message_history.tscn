@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://brqp68c7pagsm"]
+
+[ext_resource type="Script" path="res://ui/message_history/message_history.gd" id="1_uy4nf"]
+
+[node name="message_history" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_uy4nf")
+
+[node name="VFlowContainer" type="VFlowContainer" parent="."]
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_vertical = 3
+mouse_filter = 2
+alignment = 2
+last_wrap_alignment = 3
